@@ -1,9 +1,10 @@
 enum RoutePaths {
   ROOT = '/',
+  DASHBOARD = '/dashboard',
   LOGIN = '/login',
   REGISTER = '/register',
-  DASHBOARD = '/dashboard',
-  ACCOUNT = '/account'
+  ACCOUNT = '/account',
+  NOT_FOUND = '*'
 }
 
 export default RoutePaths
