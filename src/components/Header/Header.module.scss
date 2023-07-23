@@ -3,7 +3,7 @@
 
 .header {
   @include flex(column, false);
-  padding: 15px;
+  padding: 5px;
   background-color: $secondaryColor;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.40);
   align-items: baseline;
