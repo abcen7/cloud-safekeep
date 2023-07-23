@@ -4,7 +4,7 @@ import './styles/_main.scss'
 const App: FC = () => {
   return (
     <>
-      <p>Hello!</p>
+      <p>CloudSafeKeep</p>
     </>
   )
 }

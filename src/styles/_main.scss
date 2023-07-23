@@ -1,1 +1,6 @@
 @import "default";
+@import "variables";
+
+body {
+  background-color: $rootColor;
+}
