@@ -1,3 +1,28 @@
-.file_upload {
+@import "src/styles/mixins";
+@import "src/styles/variables";
 
+.file_upload {
+  @include flex(column, true);
+  padding: 5px;
+  &__button {
+    @include flex(row, true);
+    outline: 0;
+    border: 0;
+    background-color: $thirdColor;
+    border-radius: 5px;
+    color: white;
+    font-weight: bolder;
+
+    &__icon {
+      width: 32px;
+      margin-right: 5px;
+    }
+  }
+  &__selected_file {
+    background-color: $thirdColor;
+    border-radius: 5px;
+    color: white;
+    font-weight: bolder;
+    padding: 5px;
+  }
 }
