@@ -1,6 +1,6 @@
 enum RoutePaths {
   ROOT = '/',
-  DASHBOARD = '/dashboard/:place',
+  DASHBOARD = '/dashboard/:place?',
   LOGIN = '/login',
   REGISTER = '/register',
   ACCOUNT = '/account',

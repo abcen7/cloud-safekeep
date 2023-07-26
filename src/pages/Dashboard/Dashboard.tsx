@@ -8,25 +8,28 @@ const Dashboard = () => {
 
   const tabs: ITab[] = [
     {
-      title: '/dashboard/files',
-      path: generatePath(
+      title: 'Файлы',
+      routePath: generatePath(
         RoutePaths.DASHBOARD,
         { place: 'files' },
       ),
+      iconPath: '/icons/file.svg'
     },
     {
-      title: '/dashboard/images',
-      path: generatePath(
+      title: 'Изображения',
+      routePath: generatePath(
         RoutePaths.DASHBOARD,
         { place: 'images' },
       ),
+      iconPath: '/icons/file-image.svg'
     },
     {
-      title: '/dashboard/trash',
-      path: generatePath(
+      title: 'Корзина',
+      routePath: generatePath(
         RoutePaths.DASHBOARD,
         { place: 'trash' },
       ),
+      iconPath: '/icons/trash.svg'
     },
   ]
 
