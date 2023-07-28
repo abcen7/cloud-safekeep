@@ -34,7 +34,7 @@ const FileUpload: FC = () => {
           alt='Icon'
           className={styles.file_upload__button__icon}
         />
-        Выбрать файл
+        Загрузить файл
       </button>
       {selectedFile &&
         <div className={styles.file_upload__selected_file}>Выбран файл: {selectedFile.name}</div>

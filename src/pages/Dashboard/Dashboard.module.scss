@@ -6,6 +6,8 @@
   background-color: $rootBridgeColor;
 
   &__content {
+    @include flex(row, true);
+    justify-content: space-between;
     width: 50%;
 
     &__aside {
@@ -14,6 +16,7 @@
     }
 
     &__items {
+      margin-left: 10%;
       width: 80%;
     }
   }
