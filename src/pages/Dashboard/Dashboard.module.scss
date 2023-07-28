@@ -12,6 +12,7 @@
 
     &__aside {
       @include flex(column, true);
+      align-items: flex-start;
       width: 20%;
     }
 

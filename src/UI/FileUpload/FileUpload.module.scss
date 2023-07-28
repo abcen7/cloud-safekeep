@@ -3,7 +3,7 @@
 
 .file_upload {
   @include flex(column, true);
-  padding: 5px;
+
   &__button {
     @include flex(row, true);
     outline: 0;
@@ -13,12 +13,19 @@
     border-radius: 5px;
     color: white;
     font-weight: bolder;
+    width: max-content;
 
     &__icon {
       width: 32px;
       margin-right: 5px;
     }
+
+    &__title {
+      width: max-content;
+      margin-right: 5px;
+    }
   }
+
   &__selected_file {
     background-color: $thirdColor;
     border-radius: 5px;

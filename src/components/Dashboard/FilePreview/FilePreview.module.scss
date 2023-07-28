@@ -1,12 +1,13 @@
 @import "src/styles/variables";
 
 
-
 .file_preview_wrapper {
   &__badge {
     padding: 5px;
     background-color: $thirdColor;
+    border-radius: 5px;
   }
+
   .preview_container {
     width: 64px;
     height: 64px;
