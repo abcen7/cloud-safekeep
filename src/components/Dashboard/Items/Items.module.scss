@@ -1,0 +1,13 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
+
+.items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+
+  &__item {
+    @include flex(column, true);
+  }
+}

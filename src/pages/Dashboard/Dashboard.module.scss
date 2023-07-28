@@ -12,5 +12,9 @@
       @include flex(column, true);
       width: 20%;
     }
+
+    &__items {
+      width: 80%;
+    }
   }
 }
