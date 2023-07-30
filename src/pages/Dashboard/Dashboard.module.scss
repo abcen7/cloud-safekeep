@@ -3,7 +3,7 @@
 
 .dashboard {
   @include flex(row, true);
-  background-color: $rootBridgeColor;
+  background-color: $secondaryColor;
 
   &__content {
     @include flex(row, true);
