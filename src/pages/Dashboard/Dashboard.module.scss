@@ -6,9 +6,9 @@
   background-color: $primaryColor;
 
   &__content {
-    @include flex(row, true);
+    @include flex(row, false);
+    align-items: baseline;
     justify-content: space-between;
-    width: 50%;
 
     &__aside {
       @include flex(column, true);

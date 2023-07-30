@@ -10,10 +10,11 @@
 
   .preview_container {
     &__image {
-      width: 64px;
-      height: 64px;
+      width: 96px;
+      height: 96px;
       overflow: hidden;
       object-fit: cover;
+      border-radius: 5px;
     }
   }
 }
