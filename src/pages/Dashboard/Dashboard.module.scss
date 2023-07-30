@@ -3,7 +3,7 @@
 
 .dashboard {
   @include flex(row, true);
-  background-color: $secondaryColor;
+  background-color: $primaryColor;
 
   &__content {
     @include flex(row, true);
@@ -17,7 +17,7 @@
     }
 
     &__items {
-      margin-left: 10%;
+      margin-left: 100px;
       width: 80%;
     }
   }
