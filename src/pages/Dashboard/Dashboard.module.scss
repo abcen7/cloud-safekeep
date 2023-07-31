@@ -13,16 +13,17 @@
     width: 90%;
     padding: 15px;
     background-color: $secondaryColor;
+    border-radius: 5px;
 
     &__aside {
-      @include flex(column, true);
+      @include flex(column, false);
       align-items: flex-start;
       width: 20%;
       height: 600px;
     }
 
     &__items {
-      margin-left: 100px;
+      margin-left: 25px;
       width: 80%;
       height: 600px;
     }

@@ -2,17 +2,20 @@
 @import "src/styles/variables";
 
 .header {
-  @include flex(column, false);
-  padding: 10px;
-  align-items: baseline;
+  @include flex(row, true);
+  width: 100%;
 
-  &__logo {
-    @include flex(row, true);
-
-    &__title {
-      font-size: 24px;
-      font-weight: bold;
-      color: $textColor;
+  &__wrapper {
+    @include flex(row, false);
+    width: 90%;
+    &__logo {
+      @include flex(row, true);
+      padding: 15px;
+      &__title {
+        font-size: 24px;
+        font-weight: bold;
+        color: $textColor;
+      }
     }
   }
 }

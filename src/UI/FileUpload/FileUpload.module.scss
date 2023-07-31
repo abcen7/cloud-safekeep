@@ -3,6 +3,7 @@
 
 .file_upload {
   @include flex(column, true);
+  width: 100%;
 
   &__button {
     @include flex(row, true);
@@ -13,15 +14,15 @@
     border-radius: 5px;
     color: white;
     font-weight: bolder;
-    width: max-content;
+    width: 100%;
 
     &__icon {
       width: 32px;
-      margin-right: 5px;
     }
 
     &__title {
-      width: max-content;
+      text-transform: uppercase;
+      width: 100%;
       margin-right: 5px;
     }
   }

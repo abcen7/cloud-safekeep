@@ -4,17 +4,20 @@
 .tabs {
   @include flex(column, true);
   align-items: flex-start;
+  width: 100%;
+  margin-top: 15px;
 
   &__tab {
     @include flex(row, true);
     justify-content: flex-start;
     text-decoration: none;
-    padding: 5px;
     transition: 500ms;
     border-radius: 5px;
     background-color: $secondaryColor;
     margin-top: 10px;
     width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
 
     &__icon {
       width: 24px;
