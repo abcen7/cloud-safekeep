@@ -4,21 +4,27 @@
 .dashboard {
   @include flex(row, true);
   background-color: $primaryColor;
+  margin-top: 100px;
 
   &__content {
     @include flex(row, false);
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
+    width: 90%;
+    padding: 15px;
+    background-color: $secondaryColor;
 
     &__aside {
       @include flex(column, true);
       align-items: flex-start;
       width: 20%;
+      height: 600px;
     }
 
     &__items {
       margin-left: 100px;
       width: 80%;
+      height: 600px;
     }
   }
 }

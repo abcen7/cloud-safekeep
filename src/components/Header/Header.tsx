@@ -3,16 +3,23 @@ import styles from './Header.module.scss'
 import { Logo } from '../../UI/Logo'
 import { NavLink } from 'react-router-dom'
 import routePaths from '../CoreRouter/routePaths.ts'
+
 const Header: FC = () => {
   return (
     <header className={styles.header}>
-      <div className={styles.header__icon}>
-        <NavLink to={routePaths.DASHBOARD}>
+      <NavLink
+        to={routePaths.DASHBOARD}
+        style={{
+          textDecoration: 'none'
+        }}
+      >
+        <div className={styles.header__logo}>
           <Logo
-            width={"48px"}
+            width={'48px'}
           />
-        </NavLink>
-      </div>
+          <p className={styles.header__logo__title}>CloudSafeKeep</p>
+        </div>
+      </NavLink>
     </header>
   )
 }
