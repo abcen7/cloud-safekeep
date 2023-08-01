@@ -4,7 +4,7 @@
 .dashboard {
   @include flex(row, true);
   background-color: $primaryColor;
-  margin-top: 100px;
+  margin-top: 25px;
 
   &__content {
     @include flex(row, false);
@@ -14,18 +14,23 @@
     padding: 15px;
     background-color: $secondaryColor;
     border-radius: 5px;
+    min-height: 85vh;
+    box-shadow: 0 0 2px rgba(58, 66, 75, .1), 0 2px 4px rgba(58, 66, 75, .2);
 
     &__aside {
       @include flex(column, false);
       align-items: flex-start;
       width: 20%;
-      height: 600px;
+      min-height: 85vh;
+      padding: 15px;
     }
 
     &__items {
       margin-left: 25px;
       width: 80%;
-      height: 600px;
+      min-height: 85vh;
+      height: max-content;
+      padding: 15px;
     }
   }
 }

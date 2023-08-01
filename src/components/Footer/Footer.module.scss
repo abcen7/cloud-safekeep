@@ -1,0 +1,10 @@
+@import "src/styles/mixins";
+
+.footer {
+  position: absolute;
+  bottom: 0;
+
+  &__wrapper {
+    @include flex(row, false);
+  }
+}
