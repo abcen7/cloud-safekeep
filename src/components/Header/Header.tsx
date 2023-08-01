@@ -24,8 +24,17 @@ const Header: FC = () => {
             <p className={styles.header__wrapper__logo__title}>CloudSafeKeep</p>
           </div>
         </NavLink>
+        <NavLink
+          to={RoutePaths.ACCOUNT}
+          style={{
+            textDecoration: 'none',
+          }}
+        >
+          <div className={styles.header__wrapper__account}>
+            <p className={styles.header__wrapper__account__title}>Hi, Name 👋</p>
+          </div>
+        </NavLink>
       </div>
-
     </header>
   )
 }
