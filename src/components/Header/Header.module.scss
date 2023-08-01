@@ -8,9 +8,11 @@
   &__wrapper {
     @include flex(row, false);
     width: 90%;
+
     &__logo {
       @include flex(row, true);
-      padding: 15px;
+      padding: 15px 0 15px 0;
+
       &__title {
         font-size: 24px;
         font-weight: bold;
