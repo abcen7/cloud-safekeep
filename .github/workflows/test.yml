@@ -15,3 +15,6 @@ jobs:
 
       - name: 🧪 Lint Test
         run: npm run lint
+
+      - name: 🧪 Build Test
+        run: npm run build

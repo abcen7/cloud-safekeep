@@ -46,6 +46,7 @@ const Dashboard = () => {
       items.forEach((item) => x.push(item))
     }
     setItems(x)
+    // eslint-disable-next-line
   }, [])
 
   return (
