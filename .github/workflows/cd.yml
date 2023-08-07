@@ -26,7 +26,7 @@ jobs:
 
       - name: 🧪 Stopping current build ...
         run: |
-          sh -c 'docker stop $(docker ps -qa)'
+          docker stop $(docker ps -qa)
 
       - name: 🧪 Deleting previous build ...
         run: |

@@ -20,7 +20,7 @@ RUN apk add certbot
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy React build
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=dist ./dist /usr/share/nginx/html
 
 # Expose ports
 EXPOSE 80
