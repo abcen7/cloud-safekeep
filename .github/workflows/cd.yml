@@ -26,14 +26,14 @@ jobs:
 
       - name: 🧪 Stopping current build ...
         run: |
-          docker stop `docker ps -qa`
+          docker stop $(docker ps -qa)
 
       - name: 🧪 Deleting previous build ...
         run: |
-          docker rm `docker ps -qa`
-          docker rmi -f `docker images -qa `
+          docker rm $(docker ps -qa)
+          docker rmi -f $(docker images -qa )
           docker volume rm $(docker volume ls -qf)
-          docker network rm `docker network ls -q`
+          docker network rm $(docker network ls -q)
           docker system prune -a -f
 
       - name: ⚡️ Building ...
