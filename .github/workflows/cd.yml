@@ -10,17 +10,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: ⚒️ Cloning repository
+      - name: ⚒️ Cloning repository ...
         uses: actions/checkout@v2
 
-      - name: 👋 Authorization on server
+      - name: 👋 Authorization on server ...
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_SERVER_IP }} # VPS IP
           username: ${{ secrets.SSH_SERVER_USERNAME }} # VPS USERNAME
           key: ${{ secrets.SSH_PRIVATE_KEY }} # VPS SSH KEY
 
-      - name: 🧪 Building ...
+      - name: ⚡️ Pulling updates ...
         run: |
-          scp docker-compose.yml ${{ secrets.SSH_SERVER_USERNAME }}@${{ secrets.SSH_SERVER_IP }}:${{ secrets.DEPLOY_PATH }}
-          ssh ${{ secrets.SSH_SERVER_USERNAME }}@${{ secrets.SSH_SERVER_IP }} "cd ${{ secrets.DEPLOY_PATH }} && docker-compose pull && docker-compose up -d"
+          cd ${{ secrets.DEPLOY_PATH }}
+          git pull
+
+      - name: 🧪 Stopping current build ...
+        run: |
+          docker stop `docker ps -qa`
+
+      - name: 🧪 Deleting previous build ...
+        run: |
+          docker rm `docker ps -qa`
+          docker rmi -f `docker images -qa `
+          docker volume rm $(docker volume ls -qf)
+          docker network rm `docker network ls -q`
+          docker system prune -a -f
+
+      - name: ⚡️ Building ...
+        run: |
+          docker-compose up
