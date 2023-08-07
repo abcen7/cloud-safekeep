@@ -21,9 +21,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }} # VPS SSH KEY
 
       - name: ⚡️ Pulling updates ...
-        run: |
-          cd /home/app
-          git pull
+        run: cd /home/app && git pull
 
       - name: 🧪 Stopping current build ...
         run: |
