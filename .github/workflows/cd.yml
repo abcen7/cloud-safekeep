@@ -22,5 +22,5 @@ jobs:
 
       - name: 🧪 Building ...
         run: |
-          scp docker-compose.yml ${{ secrets.SSH_SERVER_USERNAME }}@${{ secrets.SSH_SERVER_IP }}:${{ secrets.DEPLOY_PATH }
-          ssh ${{ secrets.SSH_SERVER_USERNAME }}@${{ secrets.SSH_SERVER_IP }} "cd ${{ secrets.DEPLOY_PATH } && docker-compose pull && docker-compose up -d"
+          scp docker-compose.yml ${{ secrets.SSH_SERVER_USERNAME }}@${{ secrets.SSH_SERVER_IP }}:${{ secrets.DEPLOY_PATH }}
+          ssh ${{ secrets.SSH_SERVER_USERNAME }}@${{ secrets.SSH_SERVER_IP }} "cd ${{ secrets.DEPLOY_PATH }} && docker-compose pull && docker-compose up -d"
