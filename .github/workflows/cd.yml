@@ -1,0 +1,26 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⚒️ Cloning repository
+        uses: actions/checkout@v2
+
+      - name: 👋 Authorization on server
+        uses: appleboy/ssh-action@v0.4.0
+        with:
+          host: ${{ secrets.SSH_SERVER_IP }} # VPS IP
+          username: ${{ secrets.SSH_SERVER_USERNAME }} # VPS USERNAME
+          key: ${{ secrets.SSH_PRIVATE_KEY }} # VPS SSH KEY
+
+      - name: 🧪 Building ...
+        run: |
+          scp docker-compose.yml ${{ secrets.SSH_SERVER_USERNAME }}@${{ secrets.SSH_SERVER_IP }}:${{ secrets.DEPLOY_PATH }
+          ssh ${{ secrets.SSH_SERVER_USERNAME }}@${{ secrets.SSH_SERVER_IP }} "cd ${{ secrets.DEPLOY_PATH } && docker-compose pull && docker-compose up -d"
