@@ -4,7 +4,7 @@ enum RoutePaths {
   LOGIN = '/login',
   REGISTER = '/register',
   ACCOUNT = '/account',
-  NOT_FOUND = '*'
+  NOT_FOUND = '*',
 }
 
 export default RoutePaths

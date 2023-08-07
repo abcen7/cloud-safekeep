@@ -9,18 +9,13 @@ const Header: FC = () => {
     <header className={styles.header}>
       <div className={styles.header__wrapper}>
         <NavLink
-          to={generatePath(
-            RoutePaths.DASHBOARD,
-            { place: '' },
-          )}
+          to={generatePath(RoutePaths.DASHBOARD, { place: '' })}
           style={{
             textDecoration: 'none',
           }}
         >
           <div className={styles.header__wrapper__logo}>
-            <Logo
-              width={'48px'}
-            />
+            <Logo width={'48px'} />
             <p className={styles.header__wrapper__logo__title}>CloudSafeKeep</p>
           </div>
         </NavLink>
@@ -31,7 +26,9 @@ const Header: FC = () => {
           }}
         >
           <div className={styles.header__wrapper__account}>
-            <p className={styles.header__wrapper__account__title}>Hi, Name 👋</p>
+            <p className={styles.header__wrapper__account__title}>
+              Hi, Name 👋
+            </p>
           </div>
         </NavLink>
       </div>

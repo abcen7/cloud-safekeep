@@ -5,11 +5,7 @@ import { MainLayout } from '../Layout'
 import multiLazy from '../../utils/multiLazy'
 
 const CoreRouter: FC = () => {
-
-  const [
-    DashboardPage,
-    NotFoundPage
-  ] = multiLazy([
+  const [DashboardPage, NotFoundPage] = multiLazy([
     () => import('../../pages/Dashboard/Dashboard.tsx'),
     () => import('../../pages/NotFound/NotFound.tsx'),
   ])
@@ -17,18 +13,12 @@ const CoreRouter: FC = () => {
   return (
     <Suspense fallback={<>...</>}>
       <Routes>
-        <Route
-          path={routePaths.ROOT}
-          element={<MainLayout />}
-        >
+        <Route path={routePaths.ROOT} element={<MainLayout />}>
           {/*<Route*/}
           {/*  path={routes.ACCOUNT}*/}
           {/*  element={<AccountPage />}*/}
           {/*/>*/}
-          <Route
-            path={routePaths.DASHBOARD}
-            element={<DashboardPage />}
-          />
+          <Route path={routePaths.DASHBOARD} element={<DashboardPage />} />
           {/*<Route*/}
           {/*  path={routes.LOGIN}*/}
           {/*  element={<LoginPage />}*/}
@@ -38,10 +28,7 @@ const CoreRouter: FC = () => {
           {/*  element={<RegisterPage />}*/}
           {/*/>*/}
 
-          <Route
-            path={routePaths.NOT_FOUND}
-            element={<NotFoundPage />}
-          />
+          <Route path={routePaths.NOT_FOUND} element={<NotFoundPage />} />
         </Route>
       </Routes>
     </Suspense>

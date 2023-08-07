@@ -1,0 +1,17 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⚒️ Cloning repository
+        uses: actions/checkout@v2
+
+      - name: 🧪 Install dependencies
+        run: npm install
+
+      - name: 🧪 Lint Test
+        run: npm run lint

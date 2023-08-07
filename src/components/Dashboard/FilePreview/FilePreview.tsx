@@ -6,21 +6,17 @@ interface IFilePreview {
   item: IItem
 }
 
-const FilePreview: FC<IFilePreview> = ({
-                                         item,
-                                       }) => {
+const FilePreview: FC<IFilePreview> = ({ item }) => {
   return (
     <div className={styles.file_preview_wrapper}>
       <div className={styles.preview_container}>
         <img
           className={styles.preview_container__image}
           src={item?.preview}
-          alt='preview'
+          alt="preview"
         />
       </div>
-      <span
-        className={styles.file_preview_wrapper__badge}
-      >{item.tag}</span>
+      <span className={styles.file_preview_wrapper__badge}>{item.tag}</span>
     </div>
   )
 }

@@ -12,22 +12,17 @@ interface IItems {
   items: IItem[]
 }
 
-const Items: FC<IItems> = ({
-                             items,
-                           }) => {
-
+const Items: FC<IItems> = ({ items }) => {
   return (
-    <div
-      className={styles.items}
-    >
-      {
-        items.map(item => {
-          return <div className={styles.items__item}>
+    <div className={styles.items}>
+      {items.map((item) => {
+        return (
+          <div className={styles.items__item}>
             <FilePreview item={item} />
             <label>{item.title}</label>
           </div>
-        })
-      }
+        )
+      })}
     </div>
   )
 }

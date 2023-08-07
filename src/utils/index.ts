@@ -1,1 +1,1 @@
-export {default as multiLazy} from './multiLazy.ts'
+export { default as multiLazy } from './multiLazy.ts'

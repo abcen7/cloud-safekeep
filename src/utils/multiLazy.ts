@@ -1,6 +1,5 @@
 import { ComponentType, lazy } from 'react'
 
-
 /**
  * Takes an array of module loaders and returns an array of lazy-loaded React components.
  * Suspense will await of all chunks to be loaded before showing any of them.

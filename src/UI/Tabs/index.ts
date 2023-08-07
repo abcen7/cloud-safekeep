@@ -1,2 +1,2 @@
-export type { ITab } from './Tabs';
-export { default as Tabs } from './Tabs';
+export type { ITab } from './Tabs'
+export { default as Tabs } from './Tabs'
