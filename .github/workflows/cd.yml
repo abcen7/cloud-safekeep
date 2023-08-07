@@ -22,7 +22,7 @@ jobs:
 
       - name: ⚡️ Pulling updates ...
         run: |
-          cd ${{ secrets.DEPLOY_PATH }}
+          cd /home/app
           git pull
 
       - name: 🧪 Stopping current build ...
