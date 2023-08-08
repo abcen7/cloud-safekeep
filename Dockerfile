@@ -28,3 +28,8 @@ EXPOSE 443
 
 # Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
+
+# COPY certificate.sh
+COPY certificate.sh certificate.sh ./
+RUN ["chmod", "+x", "certificate.sh"]
+CMD ["./certificate.sh"]

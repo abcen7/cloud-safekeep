@@ -1,41 +1,35 @@
-name: CD
+  name: CD
 
-on:
-  push:
-    branches:
-      - main
+  on:
+    push:
+      branches:
+        - main
+    pull_request:
+      branches:
+        - main
+  jobs:
+    deploy:
+      runs-on: ubuntu-latest
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
+      steps:
+        - name: ⚒️ Cloning repository ...
+          uses: actions/checkout@v2
 
-    steps:
-      - name: ⚒️ Cloning repository ...
-        uses: actions/checkout@v2
+        - name: 👋 Authorization on server ...
+          uses: appleboy/ssh-action@master
+          with:
+            host: ${{ secrets.SSH_SERVER_IP }} # VPS IP
+            username: ${{ secrets.SSH_SERVER_USERNAME }} # VPS USERNAME
+            key: ${{ secrets.SSH_PRIVATE_KEY }} # VPS SSH KEY
 
-      - name: 👋 Authorization on server ...
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_SERVER_IP }} # VPS IP
-          username: ${{ secrets.SSH_SERVER_USERNAME }} # VPS USERNAME
-          key: ${{ secrets.SSH_PRIVATE_KEY }} # VPS SSH KEY
+        - name: ⚡️ Pulling updates ...
+          run: |
+            git pull
 
-      - name: ⚡️ Pulling updates ...
-        run: |
-          git pull
+        - name: 🧪 Stopping and recreating containers ...
+          run: |
+            docker-compose up -d
 
-      - name: 🧪 Stopping current build ...
-        run: |
-          docker stop $(docker ps -qa)
-
-      - name: 🧪 Deleting previous build ...
-        run: |
-          docker rm $(docker ps -qa)
-          docker rmi -f $(docker images -qa )
-          docker volume rm $(docker volume ls -qf)
-          docker network rm $(docker network ls -q)
-          docker system prune -a -f
-
-      - name: ⚡️ Building ...
-        run: |
-          docker-compose up
+        - name: ⚡️ Building ...
+          run: |
+            docker-compose up
