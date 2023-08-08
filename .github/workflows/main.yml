@@ -69,4 +69,4 @@ jobs:
           script: |
             whoami
             cd ${{ secrets.DEPLOY_PATH }}
-            docker-compose up
+            docker-compose up --build
