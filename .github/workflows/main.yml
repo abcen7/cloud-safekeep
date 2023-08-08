@@ -58,5 +58,6 @@ jobs:
           script: |
             whoami
             cd ${{ secrets.DEPLOY_PATH }}
+            systemctl stop nginx
             docker-compose stop
             docker-compose up --build
