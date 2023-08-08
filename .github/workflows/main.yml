@@ -57,6 +57,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }} # VPS SSH KEY
           script: |
             whoami
+            cd ${{ secrets.DEPLOY_PATH }}
             docker-compose up -d
 
       - name: ⚡️ Building ...
@@ -67,4 +68,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }} # VPS SSH KEY
           script: |
             whoami
+            cd ${{ secrets.DEPLOY_PATH }}
             docker-compose up
