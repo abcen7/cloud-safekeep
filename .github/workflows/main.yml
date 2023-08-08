@@ -39,17 +39,32 @@ jobs:
           script: whoami
 
       - name: ⚡️ Pulling updates ...
-        script: |
-          whoami
-          cd ${{ secrets.DEPLOY_PATH }}
-          git pull
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_SERVER_IP }} # VPS IP
+          username: ${{ secrets.SSH_SERVER_USERNAME }} # VPS USERNAME
+          key: ${{ secrets.SSH_PRIVATE_KEY }} # VPS SSH KEY
+          script: |
+            whoami
+            cd ${{ secrets.DEPLOY_PATH }}
+            git pull
 
       - name: 🧪 Stopping and recreating containers ...
-        script: |
-          whoami
-          docker-compose up -d
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_SERVER_IP }} # VPS IP
+          username: ${{ secrets.SSH_SERVER_USERNAME }} # VPS USERNAME
+          key: ${{ secrets.SSH_PRIVATE_KEY }} # VPS SSH KEY
+          script: |
+            whoami
+            docker-compose up -d
 
       - name: ⚡️ Building ...
-        script: |
-          whoami
-          docker-compose up
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_SERVER_IP }} # VPS IP
+          username: ${{ secrets.SSH_SERVER_USERNAME }} # VPS USERNAME
+          key: ${{ secrets.SSH_PRIVATE_KEY }} # VPS SSH KEY
+          script: |
+            whoami
+            docker-compose up
