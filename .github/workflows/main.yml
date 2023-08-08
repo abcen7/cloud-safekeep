@@ -36,15 +36,20 @@ jobs:
           host: ${{ secrets.SSH_SERVER_IP }} # VPS IP
           username: ${{ secrets.SSH_SERVER_USERNAME }} # VPS USERNAME
           key: ${{ secrets.SSH_PRIVATE_KEY }} # VPS SSH KEY
+          script: whoami
 
       - name: ⚡️ Pulling updates ...
-        run: |
+        script: |
+          whoami
+          cd ${{ secrets.DEPLOY_PATH }}
           git pull
 
       - name: 🧪 Stopping and recreating containers ...
-        run: |
+        script: |
+          whoami
           docker-compose up -d
 
       - name: ⚡️ Building ...
-        run: |
+        script: |
+          whoami
           docker-compose up
