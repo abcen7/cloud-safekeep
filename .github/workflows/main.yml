@@ -49,17 +49,6 @@ jobs:
             cd ${{ secrets.DEPLOY_PATH }}
             git pull
 
-      - name: 🧪 Stopping and recreating containers ...
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_SERVER_IP }} # VPS IP
-          username: ${{ secrets.SSH_SERVER_USERNAME }} # VPS USERNAME
-          key: ${{ secrets.SSH_PRIVATE_KEY }} # VPS SSH KEY
-          script: |
-            whoami
-            cd ${{ secrets.DEPLOY_PATH }}
-            docker-compose up -d
-
       - name: ⚡️ Building ...
         uses: appleboy/ssh-action@master
         with:
@@ -69,4 +58,5 @@ jobs:
           script: |
             whoami
             cd ${{ secrets.DEPLOY_PATH }}
+            docker-compose stop
             docker-compose up --build
