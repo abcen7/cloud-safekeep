@@ -59,6 +59,6 @@ jobs:
           script: |
             whoami
             cd ${{ secrets.DEPLOY_PATH }}
-            systemctl stop nginx
+            kill $(lsof -t -i :443)
             docker-compose stop
             docker-compose up --build
