@@ -22,6 +22,11 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Copy React build
 COPY --from=build /app/dist /usr/share/nginx/html
 
+# COPY certificate.sh
+COPY certificate.sh certificate.sh ./
+RUN ["chmod", "+x", "certificate.sh"]
+CMD ["./certificate.sh"]
+
 # Expose ports
 EXPOSE 80
 EXPOSE 443
@@ -29,7 +34,3 @@ EXPOSE 443
 # Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
 
-# COPY certificate.sh
-COPY certificate.sh certificate.sh ./
-RUN ["chmod", "+x", "certificate.sh"]
-CMD ["./certificate.sh"]
